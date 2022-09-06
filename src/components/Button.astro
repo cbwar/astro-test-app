@@ -1,15 +1,25 @@
 ---
 export interface Props {
+    id?: string;
     href: string;
+    icon?: string;
+    onclick?: () => void;
 }
 
-const { href } = Astro.props as Props;
+const {
+    id,
+    href,
+    icon = null,
+    onclick = () => console.log("clicked !"),
+} = Astro.props as Props;
 ---
 
 <a
     href={href}
-    class="bg-blue-500 text-white py-2 px-4 rounded"
+    class="app-button bg-blue-500 text-white py-2 px-4 rounded mr-2"
+    id={id}
 >
+    {icon && <i class={icon} />}
     <slot />
 </a>
 
@@ -22,3 +32,13 @@ const { href } = Astro.props as Props;
         }
     }
 </style>
+
+<script>
+    document.querySelectorAll(".app-button").forEach((it) => {
+        it.addEventListener("click", (e) => {
+            e.stopPropagation()
+            const text = (e.currentTarget as HTMLAnchorElement).innerText
+            console.log(`button ${text} clicked`);
+        });
+    });
+</script>
