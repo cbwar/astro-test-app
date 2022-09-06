@@ -1,0 +1,44 @@
+@import "tailwind.scss";
+@import "variables";
+@import "@fortawesome/fontawesome-free/css/all";
+
+/* archivo-black-regular - latin */
+@font-face {
+    font-family: 'Archivo Black';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/archivo-black-v10-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: local(''),
+        url('../fonts/archivo-black-v10-latin-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../fonts/archivo-black-v10-latin-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../fonts/archivo-black-v10-latin-regular.woff') format('woff'),
+        /* Modern Browsers */
+        url('../fonts/archivo-black-v10-latin-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../fonts/archivo-black-v10-latin-regular.svg#ArchivoBlack') format('svg');
+    /* Legacy iOS */
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+}
+
+main {
+    padding-bottom: 4em;
+}
+
+.archivo-black {
+    font-family: Archivo Black, monospace;
+}
+
+.dark-bg {
+    background-color: $dark-bg-color;
+}
+
+.dark-bg-lighter {
+    background-color: lighten($dark-bg-color, 10);
+}
